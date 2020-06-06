@@ -1,0 +1,19 @@
+---
+- name: User Playbook
+  hosts: all
+  become: yes
+  become_method: sudo
+  user: centos
+  tasks:
+  - name: Add user bob
+    user:
+      name: bob
+      comment: "john smith"
+      groups: wheel
+      generate_ssh_key: yes
+      state: present
+
+  - name: Add User lisa
+    user:
+      name: lisa
+      state: present
