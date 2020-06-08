@@ -1,0 +1,6 @@
+---
+- name: First Playbook
+  hosts: localhost
+  become: yes
+  become_method: sudo
+  tasks:
