@@ -15,6 +15,8 @@
     package:
       name: serverbackup-enterprise-agent
       state: present
+
+
   - name: Start agent
     when: (ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6")
     service:
@@ -30,3 +32,7 @@
   - name: Get key
     when: (ansible_facts['distribution'] == "CentOS" and ansible_facts['distribution_major_version'] == "6")
     command: "r1soft-setup  --get-key   http://18.132.18.152:8080/"
+
+
+  handlers:
+     - name: Agent _installed_
